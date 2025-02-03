@@ -31,7 +31,7 @@
       },
       {
         "archetypes": [
-          "lbu"
+          "corp"
         ],
         "display_name": "LBU1",
         "exists": false,
@@ -40,7 +40,7 @@
       },
       {
         "archetypes": [
-          "lbu"
+          "corp"
         ],
         "display_name": "LBU2",
         "exists": false,
