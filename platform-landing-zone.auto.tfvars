@@ -33,7 +33,7 @@ custom_replacements = {
     connectivity_hub_vwan_resource_group_name      = "rg-hub-vwan-$${starter_location_01}"
     connectivity_hub_primary_resource_group_name   = "rg-hub-$${starter_location_01}"
     connectivity_hub_secondary_resource_group_name = "rg-hub-$${starter_location_02}"
-    dns_resource_group_name                        = "rg-hub-dns-$${starter_location_01}"
+    # dns_resource_group_name                        = "rg-hub-dns-$${starter_location_01}"
     asc_export_resource_group_name                 = "rg-asc-export-$${starter_location_01}"
 
     # Resource names
@@ -51,7 +51,7 @@ custom_replacements = {
     primary_firewall_policy_name                       = "fwp-hub-$${starter_location_01}"
 
   
-    primary_private_dns_resolver_name                  = "pdr-hub-dns-$${starter_location_01}"
+    # primary_private_dns_resolver_name                  = "pdr-hub-dns-$${starter_location_01}"
 
 
     # Resource names secondary connectivity
@@ -61,26 +61,26 @@ custom_replacements = {
     secondary_firewall_policy_name                       = "fwp-hub-$${starter_location_01}"
  
  
-    secondary_private_dns_resolver_name                  = "pdr-hub-dns-$${starter_location_02}"
+    # secondary_private_dns_resolver_name                  = "pdr-hub-dns-$${starter_location_02}"
 
 
     # Private DNS Zones primary
-    primary_auto_registration_zone_name = "$${starter_location_01}.azure.local"
+    # primary_auto_registration_zone_name = "$${starter_location_01}.azure.local"
 
     # Private DNS Zones secondary
-    secondary_auto_registration_zone_name = "$${starter_location_02}.azure.local"
+    # secondary_auto_registration_zone_name = "$${starter_location_02}.azure.local"
 
     # IP Ranges Primary
     # Regional Address Space: 10.0.0.0/16
     primary_hub_address_space                          = "10.0.0.0/22"
     primary_side_car_virtual_network_address_space     = "10.0.4.0/22"
-    primary_private_dns_resolver_subnet_address_prefix = "10.0.4.64/28"
+    # primary_private_dns_resolver_subnet_address_prefix = "10.0.4.64/28"
 
     # IP Ranges Secondary
     # Regional Address Space: 10.1.0.0/16
     secondary_hub_address_space                          = "10.1.0.0/22"
     secondary_side_car_virtual_network_address_space     = "10.1.4.0/22"
-    secondary_private_dns_resolver_subnet_address_prefix = "10.1.4.64/28"
+    # secondary_private_dns_resolver_subnet_address_prefix = "10.1.4.64/28"
   }
 
   /* 
@@ -161,9 +161,9 @@ management_group_settings = {
     ama_user_assigned_managed_identity_id       = "$${ama_user_assigned_managed_identity_id}"
     ama_user_assigned_managed_identity_name     = "$${ama_user_assigned_managed_identity_name}"
     log_analytics_workspace_id                  = "$${log_analytics_workspace_id}"
-    private_dns_zone_subscription_id            = "$${subscription_id_connectivity}"
-    private_dns_zone_region                     = "$${starter_location_01}"
-    private_dns_zone_resource_group_name        = "$${dns_resource_group_name}"
+    # private_dns_zone_subscription_id            = "$${subscription_id_connectivity}"
+    # private_dns_zone_region                     = "$${starter_location_01}"
+    # private_dns_zone_resource_group_name        = "$${dns_resource_group_name}"
   }
   subscription_placement = {
     # identity = {
@@ -246,10 +246,12 @@ connectivity_resource_groups = {
     name     = "$${connectivity_hub_secondary_resource_group_name}"
     location = "$${starter_location_02}"
   }
+  /*
   dns = {
     name     = "$${dns_resource_group_name}"
     location = "$${starter_location_01}"
   }
+  */
 }
 
 virtual_wan_settings = {
@@ -281,6 +283,7 @@ virtual_wan_virtual_hubs = {
       name = "$${primary_firewall_policy_name}"
     }
 
+    /*
     private_dns_zones = {
       resource_group_name            = "$${dns_resource_group_name}"
       is_primary                     = true
@@ -291,6 +294,7 @@ virtual_wan_virtual_hubs = {
         name = "$${primary_private_dns_resolver_name}"
       }
     }
+    */
 
     side_car_virtual_network = {
       name          = "$${primary_sidecar_virtual_network_name}"
@@ -319,6 +323,7 @@ virtual_wan_virtual_hubs = {
       name = "$${secondary_firewall_policy_name}"
     }
 
+/*
     private_dns_zones = {
       resource_group_name            = "$${dns_resource_group_name}"
       is_primary                     = false
@@ -329,6 +334,7 @@ virtual_wan_virtual_hubs = {
         name = "$${secondary_private_dns_resolver_name}"
       }
     }
+*/
 
     side_car_virtual_network = {
       name          = "$${secondary_sidecar_virtual_network_name}"
